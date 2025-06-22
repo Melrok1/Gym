@@ -16,10 +16,12 @@ export default function Header() {
 					/>
 				</Link>
         <nav className="flex gap-4">
-          <Link href="/views/products" className="hover:underline">Produkty</Link>
+          <Link href="/views/Products" className="hover:underline">Produkty</Link>
 					<div className='icons_wrapper flex gap-4 items-center'>
 						<div className='flex items-start cursor-pointer'>
-							<Icon name="user" width={22} color={'#010101'} className="text-red-500" />
+							<Link href="/views/Login">
+								<Icon name="user" width={22} color={'#010101'} className="text-red-500" />
+							</Link>
 						</div>
 						<div className='flex items-start cursor-pointer'>
 							<Icon name="cart" width={34} color={'#010101'} className="text-red-500" />
