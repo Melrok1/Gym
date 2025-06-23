@@ -1,10 +1,11 @@
 type StarRatingProps = {
   rating: number // 0.0 – 5.0
+	count: number // počet hodnotení
   size?: number  // veľkosť hviezd
   className?: string
 }
 
-export default function StarRating({ rating, size = 24, className = '' }: StarRatingProps) {
+export default function StarRating({ rating, size = 24, count = 0, className = '' }: StarRatingProps) {
   const fullStars = Math.min(Math.round(rating), 5)
 
   return (
@@ -26,7 +27,9 @@ export default function StarRating({ rating, size = 24, className = '' }: StarRa
             7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z" />
         </svg>
       ))}
-      <span className="ml-3">{rating}</span>
+			<span className="ml-3 text-sm whitespace-nowrap" style={{ color: 'var(--text-muted)' }}>
+				{rating} ({count})
+			</span>
     </div>
   )
 }

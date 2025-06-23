@@ -15,7 +15,7 @@ export default function Home() {
           priority
         />
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <Link href="/views/products">
+          <Link href="/views/Products">
             Test Fake Store Data
           </Link>
         </div>
