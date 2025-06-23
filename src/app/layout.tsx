@@ -1,5 +1,6 @@
 import './globals.css'
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 export const metadata = {
   title: 'GymBeam App',
@@ -14,8 +15,11 @@ export default function RootLayout({
   return (
     <html lang="sk">
       <body className="bg-white text-black">
-        <Header />
-        <main className="min-h-screen">{children}</main>
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   )
