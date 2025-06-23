@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GymBeam Case Study – React Developer (Next.js + Tailwind)
 
-## Getting Started
+This project is a simple e-commerce application developed as part of the GymBeam hiring process. It displays a product list and detail views for authenticated users. The app uses React, Next.js, Tailwind CSS, and the Fake Store API.
 
-First, run the development server:
+---
 
+## 🔧 Technologies Used
+
+- **React** (with Next.js App Router)
+- **Tailwind CSS**
+- **Fake Store API** (`https://fakestoreapi.com`)
+- **LocalStorage** for authentication
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/your-username/gymbeam-case.git
+cd gymbeam-case
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run the Development Server
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open your browser and go to:
+```
+http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🔑 Authentication
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Use the **Login page** to authenticate.
+- Login requires any email and password (simulated login).
+- After login:
+  - Product list and detail views are accessible
+  - Email is shown in the header
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🔒 Page Protection
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `/views/Products` and `/views/ProductDetail/[id]` are **protected routes**.
+- If not authenticated, the user is redirected to the Login page.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 📁 Project Structure
+
+```
+app/
+├── layout.tsx
+├── page.tsx (Home)
+├── globals.css
+├── views/
+│   ├── Login/
+│   ├── Products/
+│   └── ProductDetail/[id]/
+├── components/
+│   ├── Header.tsx
+│   ├── Footer.tsx
+│   ├── ProductCard.tsx
+│   ├── StarRating.tsx
+│   └── Icons.tsx
+├── context/
+│   └── auth-context.tsx
+```
+
+---
+
+## 📸 Screenshots
+Screenshots of the app on desktop and mobile devices are included in the `/screenshots` folder.
+
+---
+
+## 📦 Build for Production
+```bash
+npm run build
+```
+
+---
+
+## ✅ Requirements Met
+- ✅ Login + Logout
+- ✅ Protected products & detail pages
+- ✅ Responsive layout
+- ✅ Styled using Tailwind
+- ✅ GymBeam branding (logo, color scheme)
+- ✅ Based on Fake Store API
+
+---
+
+## 📬 Contact
+For any questions or issues, please contact me at: `martin.blascak86@gmail.com`
