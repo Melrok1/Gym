@@ -12,7 +12,7 @@ export default function ProductsPage() {
 
   useEffect(() => {
     if (!isLoggedIn) {
-      router.replace('/views/Login') // presmerovanie na login
+      router.replace('/views/Login')
     }
   }, [isLoggedIn])
 
@@ -24,8 +24,7 @@ export default function ProductsPage() {
     }
   }, [isLoggedIn])
 
-  if (!isLoggedIn) return null // neukazuj nič, kým nie je prihlásený
-
+  if (!isLoggedIn) return null
   return (
     <div className="p-8">
       <div className="mb-6 border-b-2 pb-2" style={{ borderColor: 'var(--color-secondary)' }}>

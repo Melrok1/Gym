@@ -7,6 +7,7 @@
 
   --color-primary: #111827;
   --color-secondary: #ff4100;
+  --color-error: #dc2626;
   --text-primary: #111827;
   --text-secondary: #ff4100;
   --text-muted: #959595;
@@ -19,6 +20,7 @@
 
     --color-primary: #9ca3af;
     --color-secondary: #ff4100;
+    --color-error: #f87171;
     --text-primary: #9ca3af;
     --text-secondary: #ff4100;
     --text-muted: #959595;

@@ -52,9 +52,13 @@ export default function LoginPage() {
           type="email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className={`w-full p-2 border ${emailError ? 'border-red-500' : 'border-black'} mb-1`}
+          className={`w-full p-2 border mb-1`}
+					style={{
+						borderColor: emailError ? 'var(--color-error)' : 'black'
+					}}
         />
-        <p className="text-sm text-red-600 mb-4 min-h-[1.25rem]">
+
+        <p className="text-sm mb-4 min-h-[1.25rem]" style={{ color: emailError ? 'var(--color-error)' : 'transparent' }}>
           {emailError || '\u00A0'}
         </p>
 
@@ -64,9 +68,13 @@ export default function LoginPage() {
           type="password"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className={`w-full p-2 border ${passwordError ? 'border-red-500' : 'border-black'} mb-1`}
+          className={`w-full p-2 border mb-1`}
+					style={{
+						borderColor: emailError ? 'var(--color-error)' : 'black'
+					}}
         />
-        <p className="text-sm text-red-600 mb-6 min-h-[1.25rem]">
+
+        <p className="text-sm mb-4 min-h-[1.25rem]" style={{ color: passwordError  ? 'var(--color-error)' : 'transparent' }}>
           {passwordError || '\u00A0'}
         </p>
 
