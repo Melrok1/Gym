@@ -56,7 +56,7 @@ export default function ProductDetailPage() {
         <img
           src={product.image}
           alt={product.title}
-          className="w-full max-w-xs object-contain border rounded"
+          className="w-full max-w-xs object-contain"
         />
       </div>
 

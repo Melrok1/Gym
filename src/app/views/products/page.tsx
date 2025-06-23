@@ -28,7 +28,9 @@ export default function ProductsPage() {
 
   return (
     <div className="p-8">
-      <h1 className="text-2xl font-bold mb-4">Testovacia stránka Produkty</h1>
+      <div className="mb-6 border-b-2 pb-2" style={{ borderColor: 'var(--color-secondary)' }}>
+        <h1 className="text-2xl font-bold">Produkty</h1>
+      </div>
       <ul className="grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
         {products.map((product: any) => (
           <li key={product.id}>

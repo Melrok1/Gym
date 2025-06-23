@@ -42,7 +42,7 @@ export default function LoginPage() {
   }
 
 	return (
-    <div className="min-h-screen flex flex-col items-center justify-center px-4">
+		<div className="flex-1 flex items-center justify-center px-4 mt-2 md:mt-16 lg:mt-20">
       <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-6 pt-6 pb-8 w-full max-w-md">
         <h1 className="text-xl font-bold mb-6 text-[#ff4500] text-left">Prihlásenie užívateľa</h1>
 
