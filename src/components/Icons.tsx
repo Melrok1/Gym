@@ -1,5 +1,5 @@
 type IconProps = {
-  name: 'cart' | 'user' | 'heart' | 'logout'
+  name: 'cart' | 'user' | 'logout'
   className?: string
   width?: number | string
   height?: number | string
@@ -48,20 +48,6 @@ export default function Icon({ name, className = '', width = '1.5rem', height = 
 						1.2 1.2 2 1.6 1.1.6 2.3 1 3.7 1 1.3 0 2.6-.3 3.7-1 .8-.4 1.4-1 2-1.6.9.7 1.7 1.7 2.3 2.7.8 1.3 1.2 2.9 1.2 4.5v6.1z.5zm-15.2-8.5h11l2.1 
 						6.3h-15.3l2.2-6.3zm-7.7 17.2h5l1 6.5h-3.8l-2.2-6.5zm24.3 6.5h-3.7l1-6.5h5l-2.3 6.5z"
 					/>
-        </svg>
-      )
-
-    case 'heart':
-      return (
-        <svg
-          className={className}
-          width={width}
-          height={height}
-          viewBox="0 0 24 24"
-          fill={color}
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M12 21.35l-1.45-1.32C5.4 15.36..." />
         </svg>
       )
 

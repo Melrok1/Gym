@@ -2,24 +2,24 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/context/auth-context'
 
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const router = useRouter()
+  const { isLoggedIn, login } = useAuth()
 
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn')
-    if (isLoggedIn === 'true') {
+    if (isLoggedIn) {
       router.push('/views/Products')
     }
-  }, [])
+  }, [isLoggedIn, router])
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
     if (email && password) {
-      localStorage.setItem('isLoggedIn', 'true')
-      localStorage.setItem('userEmail', email)
+      login(email)
       router.push('/views/Products')
     } else {
       alert('Zadaj email aj heslo')

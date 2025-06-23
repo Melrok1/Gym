@@ -1,8 +1,8 @@
 'use client'
 
-import Image from "next/image"
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { useAuth } from '@/context/auth-context'
 
 // Typovanie pre produkty
 interface Product {
@@ -15,6 +15,7 @@ export default function Home() {
   const [products, setProducts] = useState<Product[]>([])
   const [page, setPage] = useState(0)
   const sliderInterval = 6000
+  const { isLoggedIn } = useAuth()
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
@@ -33,7 +34,21 @@ export default function Home() {
 
   return (
     <div className="flex flex-col justify-center w-full">
-      <h2 className="text-white text-center text-base" style={{ backgroundColor: 'var(--color-secondary)'}}>Vitajte! Pre prístup k ponuke produktov sa prosím prihláste.</h2>
+    <div className="w-full text-white text-center text-base py-2" style={{ backgroundColor: 'var(--color-secondary)' }}>
+      {isLoggedIn ? (
+        <div>
+          <p>Vitajte späť! Môžete pokračovať do sekcie produktov.</p>
+          <Link
+            href="/views/Products"
+            className="inline-block mt-2 bg-white text-black font-semibold py-1 px-3 rounded hover:bg-gray-100 transition"
+          >
+            Prejsť na produkty
+          </Link>
+        </div>
+      ) : (
+        <p>Vitajte! Pre prístup k ponuke produktov sa prosím prihláste.</p>
+      )}
+    </div>
       {/* Product Slider */}
       <div className="w-full max-w-5xl overflow-hidden mt-8 mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
