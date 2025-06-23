@@ -7,6 +7,8 @@ import { useAuth } from '@/context/auth-context'
 export default function LoginPage() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
   const router = useRouter()
   const { isLoggedIn, login } = useAuth()
 
@@ -18,39 +20,61 @@ export default function LoginPage() {
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault()
-    if (email && password) {
-      login(email)
-      router.push('/views/Products')
-    } else {
-      alert('Zadaj email aj heslo')
+
+    let hasError = false
+    setEmailError('')
+    setPasswordError('')
+
+    if (!email) {
+      setEmailError('Zadajte e-mailovú adresu')
+      hasError = true
     }
+
+    if (!password) {
+      setPasswordError('Zadajte heslo')
+      hasError = true
+    }
+
+    if (hasError) return
+
+    login(email)
+    router.push('/views/Products')
   }
 
-  return (
+	return (
     <div className="min-h-screen flex flex-col items-center justify-center px-4">
-      <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-full max-w-md">
-        <h1 className="text-2xl font-bold mb-4 text-center">Prihlásenie</h1>
+      <form onSubmit={handleLogin} className="bg-white shadow-md rounded px-6 pt-6 pb-8 w-full max-w-md">
+        <h1 className="text-xl font-bold mb-6 text-[#ff4500] text-left">Prihlásenie užívateľa</h1>
 
+        <label htmlFor="email" className="block text-sm font-medium mb-1 text-black">E-mail</label>
         <input
+          id="email"
           type="email"
-          placeholder="Email"
           value={email}
           onChange={e => setEmail(e.target.value)}
-          className="w-full mb-4 p-2 border rounded"
+          className={`w-full p-2 border ${emailError ? 'border-red-500' : 'border-black'} mb-1`}
         />
+        <p className="text-sm text-red-600 mb-4 min-h-[1.25rem]">
+          {emailError || '\u00A0'}
+        </p>
+
+        <label htmlFor="password" className="block text-sm font-medium mb-1 text-black">Heslo</label>
         <input
+          id="password"
           type="password"
-          placeholder="Heslo"
           value={password}
           onChange={e => setPassword(e.target.value)}
-          className="w-full mb-6 p-2 border rounded"
+          className={`w-full p-2 border ${passwordError ? 'border-red-500' : 'border-black'} mb-1`}
         />
+        <p className="text-sm text-red-600 mb-6 min-h-[1.25rem]">
+          {passwordError || '\u00A0'}
+        </p>
 
         <button
           type="submit"
-          className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700 transition"
+          className="w-full bg-[#ff4500] mt-5 text-white font-bold py-3 uppercase text-sm hover:brightness-110 transition"
         >
-          Prihlásiť sa
+          Prihlásiť
         </button>
       </form>
     </div>
